@@ -38,18 +38,11 @@ const closePopup = function (model) {
 //add popup_open class
 const openPopup = function (model) {
     model.classList.add("popup_open");
+    profileNameInput.value = userNameElement.textContent;
+    profileJobInput.value = userJobElement.textContent;
 };
 
 
-
-//add event listener to all like buttons in cards
-const like = list.querySelectorAll(".card__like");
-//console.log(like);
-for (i = 0; i < like.length; i++) {
-    like[i].addEventListener("click", function (event) {
-        event.target.classList.toggle("card__like_active");
-    });
-}
 
 
 
@@ -64,8 +57,7 @@ const editProfileFormSubmit = function (event) {
 //open
 editProfileButton.addEventListener("click", function () {
     openPopup(editProfileModel);
-    profileNameInput.value = userNameElement.textContent;
-    profileJobInput.value = userJobElement.textContent;
+   
 });
 
 
