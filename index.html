@@ -7,7 +7,6 @@
     <title>Around The U.S.</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
-
   <body class="page">
     <div class="page__container">
       <header class="header">
@@ -15,102 +14,99 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img src="./images/explorer.jpg" alt="A profile image" class="profile__image">
+          <img
+            src="./images/explorer.jpg"
+            alt="profile image"
+            class="profile__image"
+          />
           <div class="profile__section-information">
             <div class="profile__row-information">
               <h1 class="profile__name">Jacques Cousteau</h1>
-              <button type="button"
-              class="profile__edit-button"></button>
+              <button type="button" class="profile__edit-button"></button>
             </div>
             <p class="profile__job">Explorer</p>
           </div>
-          <button type="button"
-          class="profile__add-button"></button>
+          <button type="button" class="profile__add-button"></button>
         </section>
         <section class="cards">
-          <ul class="cards__list">
-            <li class="card">
-              <img class="card__image" src="./images/mountains.jpg" alt="Yosemite Valley">
-              <div class="card__row">
-                  <h2 class="card__title">Yosemite Valley</h2>
-                  <button type ="button"
-                  class="card__like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image" src="./images/lake.jpg" alt="Lake Louise">
-            
-              <div class="card__row">
-                  <h2 class="card__title">Lake Louise</h2>
-                  <button type ="button"
-                  class="card__like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image" src="./images/sunset.jpg" alt="Bald Mountains">
-            
-              <div class="card__row">
-                  <h2 class="card__title">Bald Mountains</h2>
-                  <button type ="button"
-                  class="card__like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image" src="./images/mountains-night.jpg" alt="Latemar">
-            
-              <div class="card__row">
-                  <h2 class="card__title">Latemar</h2>
-                  <button type ="button"
-                  class="card__like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image" src="./images/lake2.jpg" alt="Vanoise National Park">
-            
-              <div class="card__row">
-                  <h2 class="card__title">Vanoise National Park</h2>
-                  <button type ="button"
-                  class="card__like"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image" src="./images/lake-boats.jpg" alt="Lago di Braies">
-            
-              <div class="card__row">
-                  <h2 class="card__title">Lago di Braies</h2>
-                  <button type ="button"
-                  class="card__like"></button>
-              </div>
-            </li>
-          </ul>
+          <ul class="cards__list"></ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__text">&copy; 2021 Around The U.S.</p>
       </footer>
+
+      <!-- Edit profile popup -->
       <div class="popup popup_type_edit-profile">
         <div class="popup__container">
-          <button type="button"
-          class="popup__close-button"></button>
+          <button type="button" class="popup__close-button"></button>
           <h2 class="popup__title">Edit Profile</h2>
           <form name="profile" action="#" class="form">
-            <input type="text"
-            name="name"
-            class="form__input form__input_type_name"
-            placeholder="name"
-            >
-            <input type="text"
-            name="job"
-            class="form__input form__input_type_job"
-            placeholder="job"
-            >
-            <button type="submit"
-            class="form__button">Save</button>
+            <input
+              type="text"
+              name="name"
+              class="form__input form__input_type_name"
+              placeholder="name"
+            />
+            <input
+              type="text"
+              name="job"
+              class="form__input form__input_type_job"
+              placeholder="job"
+            />
+            <button type="submit" class="form__button">Save</button>
           </form>
         </div>
       </div>
+
+      <!-- Add Card Popup-->
+
+      <div class="popup popup_type_add-card">
+        <div class="popup__container">
+          <button type="button" class="popup__close-button"></button>
+          <h3 class="popup__title">New Place</h3>
+          <form name="new" action="#" class="form">
+            <input
+              type="text"
+              name="card-title"
+              class="form__input form__input_type_card-title"
+              placeholder="Title"
+            />
+            <input
+              type="text"
+              name="card-link"
+              class="form__input form__input_type_card-link"
+              placeholder="Image link"
+            />
+            <button type="submit" class="form__button">Create</button>
+          </form>
+        </div>
+      </div>
+
+      <!--Image Popup-->
+      <div class="popup popup_type_image">
+        <div class="popup__container popup__figure-container">
+          <button type="button" class="popup__close-button"></button>
+          <!-- https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_figcaption_css -->
+          <figure class="popup__figure">
+            <img class="popup__image" />
+            <figcaption class="popup__caption"></figcaption>
+          </figure>
+        </div>
+      </div>
+      <!--  -->
     </div>
+    <!-- Card template -->
+    <template id="card-template">
+      <li class="card">
+        <img class="card__image" />
+        <button type="button" class="card__delete"></button>
+        <div class="card__row">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like"></button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
-  </html>
-  
+</html>
