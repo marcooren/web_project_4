@@ -34,7 +34,7 @@ const addCardButton = document.querySelector(".profile__add-button");
 //Cards
 const list = document.querySelector(".cards__list");
 
-//**
+
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
@@ -81,19 +81,20 @@ const closePopup = function (model) {
 
 //add popup_open class
 const openPopup = (model) => {
-
   model.classList.add("popup_open");
-  profileNameInput.value = userNameElement.textContent;
-  profileJobInput.value = userJobElement.textContent;
-  
-
-
 
 };
 
- 
-
 //*******************************************************************************************************************************************************
+
+
+const figureModel = document.querySelector(".popup_type_image");
+  const figureCloseButton = figureModel.querySelector(".popup__close-button");
+
+  figureCloseButton.addEventListener("click", () => {
+    closePopup(figureModel);
+  });
+
 
 const generateCard = (cardData) => {
   const listItem = cardTemplate.cloneNode(true);
@@ -102,13 +103,11 @@ const generateCard = (cardData) => {
   const title = listItem.querySelector(".card__title");
   const like = listItem.querySelector(".card__like");
 
-  const figureModel = document.querySelector(".popup_type_image");
-  const figureCloseButton = figureModel.querySelector(".popup__close-button");
-
-  // Image Property setup
+  
+  // Image  setup
   imageElement.src = cardData.link;
   imageElement.alt = cardData.name;
-  // Title Property setup
+  // Title  setup
   title.textContent = cardData.name;
 
   /** Delete Property click Event **/
@@ -120,7 +119,7 @@ const generateCard = (cardData) => {
   like.addEventListener("click", (evt) => {
     evt.target.classList.toggle("card__like_active");
   });
-  /** Image Property click Event **/
+  /** Image  click Event **/
   imageElement.addEventListener("click", () => {
     const img = figureModel.querySelector(".popup__image");
     const caption = figureModel.querySelector(".popup__caption");
@@ -130,9 +129,8 @@ const generateCard = (cardData) => {
     openPopup(figureModel);
   });
 
-  figureCloseButton.addEventListener("click", () => {
-    closePopup(figureModel);
-  });
+ 
+
   list.prepend(listItem);
 };
 
@@ -152,13 +150,15 @@ const addCardFormSubmit = (evt) => {
   evt.preventDefault();
   generateCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardModel);
-  //reset 
+  //reset
   addCardForm.reset();
 };
 
 //open
 editProfileButton.addEventListener("click", () => {
   openPopup(editProfileModel);
+  profileNameInput.value = userNameElement.textContent;
+  profileJobInput.value = userJobElement.textContent;
 });
 
 //**************************************
