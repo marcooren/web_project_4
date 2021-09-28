@@ -181,7 +181,6 @@ editModelCloseButton.addEventListener("click", () => {
 
 addCardModelCloseButton.addEventListener("click", () => {
   closePopup(addCardModel);
-
   cardTitleInput.value = "";
   cardLinkInput.value = "";
 });
