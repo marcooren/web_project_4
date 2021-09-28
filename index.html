@@ -40,20 +40,32 @@
       <div class="popup popup_type_edit-profile">
         <div class="popup__container">
           <button type="button" class="popup__close-button"></button>
-          <h2 class="popup__title">Edit Profile</h2>
-          <form name="profile" action="#" class="form">
+          <h3 class="popup__title">Edit Profile</h3>
+          <form name="profile" action="#" class="form" novalidate>
             <input
               type="text"
               name="name"
+              id="name-input"
               class="form__input form__input_type_name"
               placeholder="name"
+              required
+              minlength="2"
+              maxlength="40"
             />
+            <span id="name-input-error"></span>
+
             <input
               type="text"
               name="job"
+              id="job-input"
               class="form__input form__input_type_job"
               placeholder="job"
+              required
+              minlength="2"
+              maxlength="200"
             />
+            <span id="job-input-error"></span>
+
             <button type="submit" class="form__button">Save</button>
           </form>
         </div>
@@ -65,19 +77,27 @@
         <div class="popup__container">
           <button type="button" class="popup__close-button"></button>
           <h3 class="popup__title">New Place</h3>
-          <form name="new" action="#" class="form">
+          <form name="new" action="#" class="form" novalidate>
             <input
               type="text"
               name="card-title"
+              id="card-title-input"
               class="form__input form__input_type_card-title"
               placeholder="Title"
+              required
+              minlength="1"
+              maxlength="30"
             />
+            <span id="card-title-input-error"></span>
             <input
-              type="text"
+              type="url"
               name="card-link"
+              id="card-link-input"
               class="form__input form__input_type_card-link"
               placeholder="Image link"
+              required
             />
+            <span id="card-link-input-error"></span>
             <button type="submit" class="form__button">Create</button>
           </form>
         </div>
@@ -107,6 +127,7 @@
         </div>
       </li>
     </template>
+    <script type="module" src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
