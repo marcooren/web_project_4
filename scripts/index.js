@@ -45,6 +45,13 @@ const addCardModelCloseButton = addCardModel.querySelector(
   ".popup__close-button"
 );
 
+const model=document.querySelector(".popup_type_image");
+const figureCloseButton = model.querySelector(".popup__close-button");
+figureCloseButton.addEventListener("click", () => {
+  closePopup(model);
+});
+
+
 const editProfileForm = editProfileModel.querySelector(".form");
 const addCardForm = addCardModel.querySelector(".form");
 
@@ -118,10 +125,6 @@ const createFigurePopup = (imageElement, figureModel, cardData) => {
     openPopup(figureModel);
   });
 
-  const figureCloseButton = figureModel.querySelector(".popup__close-button");
-  figureCloseButton.addEventListener("click", () => {
-    closePopup(figureModel);
-  });
 };
 
 const generateCard = (cardData) => {
@@ -153,7 +156,8 @@ const addCardFormSubmit = (evt) => {
   evt.preventDefault();
   renderCard({ name: cardTitleInput.value, link: cardLinkInput.value });
   closePopup(addCardModel);
-
+  addCardForm.querySelector(".form__button").disabled=true;
+  addCardForm.querySelector(".form__button").classList.add("form__button_inactive");
   addCardForm.reset();
 };
 
@@ -172,7 +176,7 @@ editProfileButton.addEventListener("click", () => {
 
 addCardButton.addEventListener("click", () => {
   openPopup(addCardModel);
-  resetInputData(addCardModel);
+ 
 });
 
 editModelCloseButton.addEventListener("click", () => {
@@ -181,8 +185,7 @@ editModelCloseButton.addEventListener("click", () => {
 
 addCardModelCloseButton.addEventListener("click", () => {
   closePopup(addCardModel);
-  cardTitleInput.value = "";
-  cardLinkInput.value = "";
+ 
 });
 
 editProfileForm.addEventListener("submit", editProfileFormSubmit);
